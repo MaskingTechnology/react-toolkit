@@ -2,7 +2,7 @@
 import type { RefObject } from 'react';
 import { useCallback, useState, useRef } from 'react';
 
-type States = 'idle' | 'submitting';
+type States = 'idle' | 'working';
 type DataHandler = (data: FormData) => Promise<void>;
 type FormRef = RefObject<HTMLFormElement | null>;
 
@@ -18,7 +18,7 @@ export function useFormData(handler: DataHandler, ref?: FormRef)
 
         if (form === null) return;
 
-        setState('submitting');
+        setState('working');
 
         await handler(new FormData(form));
 
