@@ -1,8 +1,11 @@
 {
   "name": "@maskingtech/react-toolkit",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.2",
   "type": "module",
+  "repository": {
+    "url": "https://github.com/MaskingTechnology/react-toolkit"
+  },
   "scripts": {
     "build": "vite build",
     "clean": "rimraf dist",

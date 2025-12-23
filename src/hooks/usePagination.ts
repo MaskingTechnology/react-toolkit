@@ -50,9 +50,15 @@ export function usePagination<T>(getData: GetData<T>, limit: number, deps: Depen
 
     }, []);
 
-    const nextPage = useCallback(() =>
+    const next = useCallback(() =>
     {
         setPage(page => page + 1);
+
+    }, []);
+
+    const previous = useCallback(() =>
+    {
+        setPage(page => page - 1);
 
     }, []);
 
@@ -67,5 +73,5 @@ export function usePagination<T>(getData: GetData<T>, limit: number, deps: Depen
 
     useEffect(loadData, [getData, loadData, page]);
 
-    return [data, isLoading, isFinished, nextPage, reset, setData] as const;
+    return [data, isLoading, isFinished, next, previous, reset, setData] as const;
 }

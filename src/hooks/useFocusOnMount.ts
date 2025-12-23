@@ -2,7 +2,7 @@
 import type { RefObject } from 'react';
 import { useEffect, useRef } from 'react';
 
-export function useFocusOnMount(ref?: RefObject<HTMLElement>)
+export function useFocusOnMount(ref?: RefObject<HTMLFormElement>)
 {
     const elementRef = ref ?? useRef<HTMLFormElement>(null);
 
