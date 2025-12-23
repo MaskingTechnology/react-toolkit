@@ -27,7 +27,7 @@ function ErrorHandler({ error }: { error: unknown })
 
 ### useDebouncedValue
 
-Catches errors and passes it to the provided element.
+Delays value updates for a period of time.
 
 Usage:
 
