@@ -37,12 +37,11 @@ export function useLoadData<T>(getData: GetData<T>, deps: DependencyList = [])
 
     }, [getData]);
 
-    const refresh = useCallback(() =>
+    const refresh = () =>
     {
         setData(undefined);
         loadData();
-
-    }, [loadData]);
+    };
 
     useEffect(loadData, [getData, ...deps]);
 

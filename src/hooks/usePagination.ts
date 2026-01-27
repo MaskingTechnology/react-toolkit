@@ -23,7 +23,10 @@ export function usePagination<T>(getData: GetData<T>, limit: number, deps: Depen
 
             if (data.length < limit) setIsFinished(true);
 
-            if (cancelled) return;
+            if (cancelled) 
+            {
+                return;
+            }
 
             setIsLoading(false);
 
@@ -41,37 +44,37 @@ export function usePagination<T>(getData: GetData<T>, limit: number, deps: Depen
 
     }, [getData, limit, page]);
 
-    const resetData = useCallback(() =>
+    const resetData = () =>
     {
         setData([]);
         setIsLoading(false);
         setIsFinished(false);
         setPage(0);
 
-    }, []);
+    };
 
-    const next = useCallback(() =>
+    const next = () =>
     {
         setPage(page => page + 1);
+    };
 
-    }, []);
-
-    const previous = useCallback(() =>
+    const previous = () =>
     {
         setPage(page => page - 1);
+    };
 
-    }, []);
-
-    const reset = useCallback(() =>
+    const reset = () =>
     {
+        const mustLoad = page === 0;
+        
         resetData();
-        loadData();
 
-    }, []);
+        if (mustLoad) loadData();
+    };
 
-    useEffect(resetData, [resetData, limit, ...deps]);
+    useEffect(resetData, [limit, ...deps]);
 
-    useEffect(loadData, [getData, loadData, page]);
+    useEffect(loadData, [loadData, page]);
 
     return [data, isLoading, isFinished, next, previous, reset, setData] as const;
 }
