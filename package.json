@@ -33,9 +33,16 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.1",
     "vite": "^8.0.3",
-    "vite-plugin-dts": "^4.5.4"
+    "vite-plugin-dts": "^5.0.2"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.56.0"
+  },
+  "engines": {
+    "node": ">= 22.9.0"
+  },
+  "packageManager": "npm@11.16.0",
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }
